@@ -1,195 +1,185 @@
-⛽ Gas Station Sales Analysis & Forecasting
-**Project Overview:**
+ ⛽ Gas Station Sales Analysis & Forecasting – Case Study
 
-This project analyzes 6 years of transaction data (2020–2025) from a gas station convenience store to identify sales trends, understand product performance, and predict future sales using data analytics and machine learning techniques.
+## 1. Project Overview
 
-The goal of this project was to help the store manager better understand business performance and make data-driven decisions for inventory planning and sales improvement.
+This project analyzes six years of point‑of‑sale (POS) transaction data from a gas station convenience store to uncover sales trends, understand product performance, and forecast future revenue using data analytics and machine learning.[page:13]  
 
-This analysis follows the data analytics workflow: Ask → Prepare → Process → Analyze → Share → Act.
+The goal is to help the store manager make data‑driven decisions about inventory planning, promotions, and revenue optimization.[page:13]  
+The workflow follows the standard analytics lifecycle: **Ask → Prepare → Process → Analyze → Share → Act**.[page:13]  
 
-**Business Problem:**
+---
 
-The store manager recently took over operations and wanted to answer several key questions:
+## 2. Business Problem
 
-When does the store experience the highest and lowest sales activity?
+A new store manager wants to quickly understand and improve store performance.  
+Key questions include:[page:13]  
 
-Which product departments generate the most revenue?
+- When does the store experience the highest and lowest sales activity?  
+- Which product departments generate the most revenue?  
+- Which items are consistently low‑performing and may require inventory adjustments?  
+- How do sales vary across months and seasons?  
+- Can historical sales data be used to predict future revenue and support planning?[page:13]  
 
-Which products generate low sales and may require inventory adjustments?
+---
 
-What strategies could increase revenue during slow months?
+## 3. Dataset
 
-Can historical sales data be used to predict future sales trends?
+The dataset was exported from the store’s POS system and contains approximately **six years of transactional data (2020–2025)**.[page:13]  
 
-**Dataset:**
+Core fields include:[page:13]  
 
-The dataset used in this project was exported from the store's POS transaction system and includes approximately six years of sales data.
+- `transaction_date`  
+- `product_category` / department  
+- `item_description`  
+- `sales_amount`  
 
-Data fields include
+For privacy, all sensitive information has been anonymized and cleaned before analysis.[page:13]  
 
-Transaction date
+---
 
-Product category
+## 4. Tools & Technologies
 
-Item description
+**Excel**[page:13]  
+- Data cleaning and quick checks  
+- Pivot tables for summarization  
+- Initial visualizations  
 
-Sales amount
+**Python**[page:13]  
+- Data preprocessing and feature engineering  
+- Exploratory Data Analysis (EDA)  
+- Machine learning model for sales forecasting  
 
-To protect business privacy, the dataset has been anonymized and cleaned before analysis.
+**Python libraries**[page:13]  
+- `pandas` – data manipulation  
+- `numpy` – numerical operations  
+- `matplotlib` – visualizations  
+- `scikit-learn` – modeling and evaluation  
 
-**Tools & Technologies:**
-This project uses the following tools:
+---
 
-Microsoft Excel
+## 5. Data Cleaning & Preparation
 
-Data cleaning
+Before analysis, the following steps were performed to ensure data quality:[page:13]  
 
-Pivot tables
+- Removed duplicate records  
+- Checked and handled missing values  
+- Standardized category and department labels  
+- Dropped unused or irrelevant columns  
+- Created summary tables (yearly and monthly) using Excel pivot tables and Python group‑bys[page:13]  
 
-Data summarization
+These steps produced a consistent, analysis‑ready dataset for EDA and modeling.[page:13]  
 
-Visualization
+---
 
-Python
+## 6. Exploratory Data Analysis
 
-Data preprocessing
+### 6.1 Yearly Sales Trends
 
-Exploratory data analysis
+Yearly sales totals (2020–2025) were computed to understand overall growth:[page:13]  
 
-Machine learning model for sales prediction
+- Revenue increased strongly from 2020 to 2022.  
+- After 2022, sales stabilized with moderate fluctuations across 2023–2025.[page:13]  
 
-Libraries used
+*(See `visuals/sales_trends.png` and the notebook for charts.)*[page:13]  
 
-pandas
+### 6.2 Monthly & Seasonal Patterns
 
-numpy
+Monthly aggregation revealed clear seasonality:[page:13]  
 
-matplotlib
+- Higher sales during spring and fall months  
+- Lower sales during winter months  
 
-scikit-learn
+These patterns suggest seasonal demand driven by travel volume and customer activity.[page:13]  
 
-**Data Cleaning & Preparation:**
+### 6.3 Department / Category Performance
 
-Before analysis, several preprocessing steps were performed:
+Top‑performing departments include:[page:13]  
 
-Removed duplicate records
+- Regular Gas  
+- Cigarettes  
+- Lottery Sales  
+- Beer  
+- Tobacco  
 
-Checked and handled missing values
+As expected, **fuel sales dominate total revenue**, but convenience products make a meaningful contribution and are a major lever for margin and basket size.[page:13]  
 
-Standardized category labels
+---
 
-Removed unnecessary columns
+## 7. Forecasting Model
 
-Created pivot tables to summarize yearly and monthly sales
+A machine learning model was built in Python to forecast future sales based on historical trends.[page:13]  
 
-These steps ensured that the dataset was clean, consistent, and ready for analysis.
+High‑level steps:[page:13]  
 
-**Exploratory Data Analysis:**
+1. Aggregate daily/weekly sales from transaction‑level data.  
+2. Engineer time‑based features (month, day of week, etc.).  
+3. Split data into train/test sets.  
+4. Train a regression‑based forecasting model using `scikit‑learn`.  
+5. Evaluate model performance on hold‑out data.  
 
-The analysis focused on identifying sales patterns across multiple dimensions:
+The model is used to:[page:13]  
 
-Yearly Sales Trends
-Year	Total Sales
-2020	$127,684
-2021	$238,108
-2022	$425,090
-2023	$403,354
-2024	$377,026
-2025	$409,205
+- Forecast future revenue  
+- Support inventory planning  
+- Highlight potential demand changes (e.g., seasonal dips and peaks)[page:13]  
 
-Sales increased significantly between 2020 and 2022, followed by stabilization in later years.
+Implementation details are in the notebook:  
+`notebooks/future_sales_prediction_model.ipynb`.[page:13]  
 
-**Monthly Sales Trends:**
+---
 
-Analysis of monthly data revealed seasonal patterns:
+## 8. Key Insights
 
-Higher sales during spring and fall months
+From the analysis and forecasting work:[page:13]  
 
-Lower sales during winter months
+- Sales grew significantly from 2020 to 2022, then stabilized in later years.  
+- Gas sales are the primary revenue driver, but convenience items (cigarettes, beer, lottery) generate consistent, complementary income.  
+- Winter months show noticeably reduced sales activity.  
+- Several product categories contribute very low revenue and may warrant inventory reduction or replacement.[page:13]  
 
-These trends suggest seasonal demand influenced by travel and customer activity.
+---
 
-**Department Revenue Analysis:**
+## 9. Business Recommendations
 
-The top-performing departments include:
+Based on the findings, the following actions are recommended to the store manager:[page:13]  
 
-Regular Gas
+1. **Promote high‑margin store items**  
+   - Use pump‑top ads, in‑store signage, and bundles (fuel + drink/snack) to increase basket size.  
 
-Cigarettes
+2. **Boost winter sales**  
+   - Introduce targeted promotions (e.g., hot drinks, comfort snacks) during slower months to offset seasonal dips.  
 
-Lottery Sales
+3. **Optimize inventory**  
+   - Reduce stock for consistently low‑performing items.  
+   - Reinvest shelf space into high‑demand or higher‑margin categories.  
 
-Beer
+4. **Operationalize forecasting**  
+   - Use the sales forecasting model as a regular input into purchasing and staffing decisions.  
+   - Continuously retrain the model with new data to keep forecasts up‑to‑date.[page:13]  
 
-Tobacco
+---
 
-Regular gas generates the highest revenue, which is expected for gas stations. However, convenience store products play an important role in overall sales.
+## 10. Project Structure
 
-**Machine Learning Model:**
-
-A sales forecasting model was developed using Python to predict future sales based on historical trends.
-
-The model helps the store manager:
-
-Forecast future revenue
-
-Improve inventory planning
-
-Identify potential demand changes
-
-**Key Insights:**
-
-Sales grew significantly from 2020 to 2022
-
-Gas sales dominate total revenue
-
-Convenience items such as cigarettes, beer, and lottery tickets generate consistent sales
-
-Winter months show reduced sales activity
-
-Some product categories generate very low revenue and may require inventory adjustments
-
-**Business Recommendations:**
-
-Based on the analysis, several strategies could improve sales performance:
-
-1. Promote High-Margin Store Items
-
-Encourage customers purchasing fuel to buy drinks, snacks, or coffee through bundled promotions.
-
-2. Increase Winter Sales
-
-Introduce seasonal promotions during slower months to increase customer purchases.
-
-3. Optimize Inventory
-
-Reduce stock of low-performing items and prioritize high-demand products.
-
-4. Use Predictive Models
-
-Leverage sales forecasting models to support better inventory and purchasing decisions.
-
-**Project Structure:**
+```bash
 gas-station-sales-analysis
 ├── notebooks
 │   └── future_sales_prediction_model.ipynb
-│
 ├── visuals
 │   └── sales_trends.png
-│
 ├── case-study.pdf
-│
 └── README.md
-Skills Demonstrated
+```
+[page:13]  
 
-Data Cleaning
+---
 
-Exploratory Data Analysis
+## 11. Skills Demonstrated
 
-Data Visualization
-
-Business Insight Development
-
-Sales Trend Analysis
-
-Machine Learning for Forecasting
+- Data cleaning and preprocessing  
+- Exploratory Data Analysis (EDA)  
+- Sales trend and seasonality analysis  
+- Data visualization (Excel & Python)  
+- Business insight generation and storytelling  
+- Machine learning for sales forecasting  
+- Translating analytics into actionable recommendations for stakeholders[page:13]  
